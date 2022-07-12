@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.hasOne(models.curso, { as : "cursos"}),
+      this.hasOne(models.campus, { as : "campuses"})
     }
   }
   discente.init({
@@ -18,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     datanascimento: DataTypes.DATE,
     cpf: DataTypes.STRING,
-    campus: DataTypes.STRING,
-    curso: DataTypes.STRING
+    campus: DataTypes.INTEGER,
+    curso: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'discente',

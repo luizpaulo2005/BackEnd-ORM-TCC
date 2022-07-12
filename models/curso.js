@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.docente, { as : "docente"}),
+      this.belongsTo(models.discente, { as : "discente"}),
+      this.belongsTo(models.tcc, { as : "tcc"})
     }
   }
   curso.init({

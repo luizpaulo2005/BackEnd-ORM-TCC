@@ -10,17 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.hasMany(models.discente, { as : "discentes"}),
+      this.hasMany(models.docente, { as : "docentes"}),
+      this.hasOne(models.curso, { as : "cursos"})
     }
   }
   tcc.init({
     titulo: DataTypes.STRING,
-    discente: DataTypes.STRING,
-    docente: DataTypes.STRING,
+    discente: DataTypes.INTEGER,
+    docente: DataTypes.INTEGER,
     data_apresentacao: DataTypes.DATE,
     resumo: DataTypes.STRING,
     palavras_chave: DataTypes.STRING,
-    curso: DataTypes.STRING
+    curso: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'tcc',
