@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.campus, { as: "campuses"})
+     this.belongsTo(models.campus, {as:"campus"}) 
     }
   }
   curso.init({
     nome: DataTypes.STRING,
     duracao: DataTypes.STRING,
     descricao: DataTypes.STRING,
-    campus: DataTypes.INTEGER
+    campusId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'curso',

@@ -70,6 +70,29 @@ app.post("/docente", async function(req, res){
     res.json(adicionar);
 })
 
+//Discente
+
+app.get("/discente", async function(req, res){
+    var mostrar = await discente.findAll();
+    res.json(mostrar);
+})
+
+app.post("/discente", async function(req, res){
+    var adicionar = await discente.create(req.body);
+    res.json(adicionar);
+})
+
+//TCC
+
+app.get("/tcc", async function(req, res){
+    var mostrar = await tcc.findAll();
+    res.json(mostrar);
+})
+
+app.post("/tcc", async function(req, res){
+    var adicionar = await tcc.create(req.body);
+    res.json(adicionar);
+})
 
 app.listen(porta, function(){
     console.log("O servidor está rodando na porta http://localhost:" + porta)
