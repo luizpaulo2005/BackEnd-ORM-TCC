@@ -36,6 +36,39 @@ app.delete("/campus/:id", async function(req, res){
     res.json(apagar);
 })
 
+//Curso
+
+app.get("/curso", async function(req, res){
+    var mostrar = await curso.findAll();
+    res.json(mostrar);
+})
+
+app.post("/curso", async function(req, res){
+    var adicionar = await curso.create(req.body);
+    res.json(adicionar);
+})
+
+app.put("/curso/:id", async function(req, res){
+    var atualizar = await curso.update(req.body, {where: {id:req.params.id}});
+    res.json(atualizar);
+})
+
+app.delete("/curso/:id", async function(req, res){
+    var apagar = await curso.destroy({where: {id:req.params.id}})
+    res.json(apagar)
+})
+
+//Docente
+
+app.get("/docente", async function(req, res){
+    var mostrar = await docente.findAll();
+    res.json(mostrar);
+})
+
+app.post("/docente", async function(req, res){
+    var adicionar = await docente.create(req.body);
+    res.json(adicionar);
+})
 
 
 app.listen(porta, function(){
