@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.campus, {as:"campus"}),
-      this.belongsTo(models.curso, {as:"curso"})
+      this.belongsTo(models.curso, {as:"curso"}),
+      this.hasMany(models.tcc, {as:"tccs"})
     }
   }
   discente.init({
